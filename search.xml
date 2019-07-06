@@ -1,41 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[tech01]]></title>
-    <url>%2F2019%2F05%2F11%2Ftech01%2F</url>
-    <content type="text"></content>
+    <title><![CDATA[如何使用npm发布自己的模块]]></title>
+    <url>%2F2017%2F04%2F20%2Fnpm%2F</url>
+    <content type="text"><![CDATA[打开npm官网注册自己的账号 假设您对npm的相关使用已经相当熟悉 项目初始化1$ npm init 如图所示执行npm init根据提示填写相关初始化信息： 在npm资源库中注册用户（用户名、密码、邮箱）,也就是自己创建的npm的账户信息1$ npm adduser 如图所示 项目准备就绪，执行如下命令即可发布1$ npm publish 发布成功如图所示 发布成功后，登录npm官网即可查看，也可以在自己项目中安装自己的发布包，安装命令如下1$ npm install 发布包名称 5. 如果发布失败的话，常见403错误，检查自己的镜像或者检查自己的包名称是否已被占用 1$ npm config get registry （查看当前npm的镜像源是否为http://registry.npmjs.org/） 6. 如果不是http://registry.npmjs.org/，则需要做如下设置 1$ npm config set registry http://registry.npmjs.org/]]></content>
       <categories>
         <category>技术</category>
       </categories>
       <tags>
-        <tag>web学习之一</tag>
+        <tag>npm</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[simon]]></title>
-    <url>%2F2019%2F05%2F11%2Fsimon%2F</url>
-    <content type="text"></content>
+    <title><![CDATA[使用hexo搭建个人博客]]></title>
+    <url>%2F2016%2F05%2F09%2Fhexo%2F</url>
+    <content type="text"><![CDATA[关于如何使用hexo管理个人博客相关简介 Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
       <categories>
-        <category>电影</category>
+        <category>技术</category>
       </categories>
       <tags>
-        <tag>蚁人</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[你好,世界]]></title>
-    <url>%2F2019%2F05%2F11%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[第一天 Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[国产战争片的翘楚]]></title>
-    <url>%2F2019%2F05%2F09%2Ftest%2F</url>
-    <content type="text"><![CDATA[第一天,这是一个美好的世界,需要大家都珍惜每一天的时光,用自己最真实的一面去观察这个世界,因为这样,你将发现一个不一样的自己, 一个全新的自己,这是一个美好的世界,需要大家都珍惜每一天的时光,用自己最真实的一面去观察这个世界,因为这样,你将发现一个不一样的自己,一个全新的自己,这是一个美好的世界,需要大家都珍惜每一天的时光,用自己最真实的一面去观察这个世界,因为这样,你将发现一个不一样的自己, Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
-      <categories>
-        <category>电影</category>
-      </categories>
-      <tags>
-        <tag>战狼</tag>
+        <tag>个人</tag>
       </tags>
   </entry>
 </search>

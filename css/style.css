@@ -402,6 +402,9 @@ pre {
   margin-bottom: 15px;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 0 5px rgba(202, 203, 203, .5);
+  -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);
+  -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);
 }
 .post .featured {
   position: absolute;

@@ -39,7 +39,7 @@
     <!--Title-->
 
 
-<title>如何使用npm发布自己的模块 | zxzy的博客</title>
+<title>如何使用npm发布自己的模块包 | zxzy的博客</title>
 
 
     <link rel="alternate" href="/atom.xml" title="zxzy的博客" type="application/atom+xml">
@@ -140,9 +140,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="如何使用npm发布自己的模块">
+        <h1 id="如何使用npm发布自己的模块包">
             
-	            如何使用npm发布自己的模块
+	            如何使用npm发布自己的模块包
             
         </h1>
         <div class="post-meta">
@@ -216,6 +216,18 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm config <span class="built_in">set</span> registry http://registry.npmjs.org/</span><br></pre></td></tr></table></figure>
 
 <br>
+7. 删除发布包
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm --force unpublish &lt;包名称&gt;</span><br><span class="line">$ npm --force unpublish &lt;包名称&gt;@版本号    //指定版本号删除</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h6 id="小注：（每次发布需修改package-json的版本号，修改规则如下）"><a href="#小注：（每次发布需修改package-json的版本号，修改规则如下）" class="headerlink" title="小注：（每次发布需修改package.json的版本号，修改规则如下）"></a>小注：<span style="color:#999">（每次发布需修改package.json的版本号，修改规则如下）</span></h6><ul>
+<li>语义版本号分为X.Y.Z三位，分别代表主版本号、次版本号和补丁版本号。</li>
+<li>如果只是修复bug，需要更新Z位。</li>
+<li>如果是新增了功能，但是向下兼容，需要更新Y位。</li>
+<li>如果有大变动，向下不兼容，需要更新X位。</li>
+</ul>
+
     </div>
     
         <div class="reward" ontouchstart>
@@ -271,7 +283,7 @@
     <div class="widget">
         <h3 class="title">文章目录</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#打开npm官网注册自己的账号"><span class="toc-text">打开npm官网注册自己的账号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#假设您对npm的相关使用已经相当熟悉"><span class="toc-text">假设您对npm的相关使用已经相当熟悉</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-text">假设您对npm的相关使用已经相当熟悉</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#打开npm官网注册自己的账号"><span class="toc-text">打开npm官网注册自己的账号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#假设您对npm的相关使用已经相当熟悉"><span class="toc-text">假设您对npm的相关使用已经相当熟悉</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-text">假设您对npm的相关使用已经相当熟悉</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#小注：（每次发布需修改package-json的版本号，修改规则如下）"><span class="toc-text">小注：（每次发布需修改package.json的版本号，修改规则如下）</span></a></li></ol></li></ol></li></ol>
         
     </div>
 </aside>

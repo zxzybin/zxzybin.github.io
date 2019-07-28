@@ -6,8 +6,21 @@
     <content type="text"><![CDATA[阿里P7前端技术专家整理的前端进阶路线 该图片来源于第三方提供]]></content>
       <categories>
         <category>技术</category>
-        <category>前端</category>
       </categories>
+      <tags>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[关于css初始化的那些事儿]]></title>
+    <url>%2F2017%2F07%2F28%2Finitialize%2F</url>
+    <content type="text"><![CDATA[我们知道，任何浏览器都会设置user agent stylesheet，通常大家 在做开发的时候，常常因为浏览器的样式不统一而产生一定的麻烦，浏览器的默认样式往往不能满足我们的预期，因此我们就需要重置浏览器样式下面则是本人开发中搜集的一些初始化样式，仅供参考使用 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364//不推荐改做法，因为会极大的增加浏览器的压力 *&#123; margin:0; padding:0 &#125;//推荐做法 /*禁止字体自动放大*/ body&#123; -webkit-text-size-adjust: 100% !important; text-size-adjust: 100% !important; -moz-text-size-adjust: 100% !important; &#125; body,dl,dd,p,h1~h6&#123;margin:0;padding:0&#125; h1~h6&#123;font-size:100%&#125;/*继承body字体大小*///根据屏幕大小改变字体 /*手机屏幕*/ @media screen and（max-width:768px）&#123; html&#123;font-size:15px&#125; &#125; /*平板屏幕*/ @media screen and（min-width:768px）and （max-width:992px）&#123; html&#123;font-size:20px&#125; &#125; /*电脑屏幕*/ @media screen and （min-width;992px）&#123; html&#123;font-size:25px&#125; &#125; body&#123;font-family:"Droid Sans Fallback","Heiti SC","Droid Sans","Helvetica","Helvetica Neue","sans-self";color:#555;background-color:#f7f7f7&#125; /*清除浮动*/.clearfix:after&#123;content:'';display:block;visibility:hidden;height:0;clear:both&#125;a:hover&#123;text-decoration:none&#125;ul,ol&#123;list-style:none;margin:0;padding:0&#125;/*图片自适应*/img&#123;max-width:100%;height:auto;&#125;/*如需默认样式可修改*/em,i&#123;font-style:normal&#125;/*除去焦点状态下的蓝色边框*/button,input,slect,textarea&#123;vertical-align:middle;outline:none&#125;/*修改占位词文字颜色*/input::-webket-input-placeholder,textarea::-webket-input-placeholder&#123;color:#ccc&#125;input:-ms-input-placeholder,textarea:-ms-input-placeholder &#123;color: #ccc;&#125;input::-webkit-input-placeholder,textarea::-webkit-input-placeholder &#123;color: #ccc;&#125;/*字体抗锯齿渲染平滑处理*/ -webkit-font-smoothing: // 主要有三个属性值 none: 无抗锯齿 subpixel-antialiased (default): 次像素平滑 常见于Mac OS和MacType For Windows antialiased: 灰度平滑 常用于Android和iOS等移动设备 — 后续仍会继续补充。。。]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[如何使用npm发布自己的模块包]]></title>

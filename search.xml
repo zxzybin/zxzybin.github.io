@@ -36,7 +36,7 @@
   <entry>
     <title><![CDATA[JavaScript笔记整理第1篇]]></title>
     <url>%2F2016%2F06%2F21%2FJavaScript%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86%E7%AC%AC1%E7%AF%87%2F</url>
-    <content type="text"><![CDATA[Javascript中的数据类型 12345678910111213141516171819202122基本类型（值类型） Undefined Null Boolean Number String复杂类型（引用类型） Object Array Date RegExp Function内置对象： Global Math类型检测： typeof instanceof Object.prototype.toString.call()值类型与引用类型在内存中的存储方式 值类型按值存储（在栈中存储） 引用类型按引用存储 （地址在栈中存储，对象在堆中存储）]]></content>
+    <content type="text"><![CDATA[Javascript中的数据类型 12345678910111213141516171819202122基本类型（值类型） Undefined Null Boolean Number String复杂类型（引用类型） Object Array Date RegExp Function内置对象： Global Math类型检测： typeof instanceof Object.prototype.toString.call()值类型与引用类型在内存中的存储方式 值类型按值存储（在栈中存储） 引用类型按引用存储 （地址在栈中存储，对象在堆中存储） 后续继续补充中。。。]]></content>
       <categories>
         <category>技术</category>
       </categories>

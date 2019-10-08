@@ -1,0 +1,359 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="zxzybin">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://zxzybin.github.io">
+    <!--SEO-->
+
+    <meta name="keywords" content="javascript">
+
+
+    <meta name="description" content="关于Javascript常见创建对象的几种方式以及原型链分析
+123456789101112131415161718192021222324252627282930313233343536373...">
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+
+    <!--Title-->
+
+
+<title>JavaScript学习笔记整理第2篇 | zxzybin</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="zxzybin" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="../../../../css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="../../../../css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="../../../../css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="zxzy">
+            <img src="../../../../img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 桃李不言,下自成蹊 </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://zxzybin.github.io">zxzybin</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa fa-home fa-spin"></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/技术/"><i class="fa fa-book fa-spin"></i>技术</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa fa-clock-o fa-spin"></i>时光机</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about/"><i class="fa fa-cog fa-spin"></i>关于</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="JavaScript学习笔记整理第2篇">
+            
+	            JavaScript学习笔记整理第2篇
+            
+        </h1>
+        <div class="post-meta">
+    
+        <span class="categories-meta fa-wrap">
+            <i class="fa fa-folder-open-o"></i>
+            <a class="category-link" href="../../../../categories/技术/">技术</a>
+        </span>
+    
+
+    
+        <span class="fa-wrap">
+            <i class="fa fa-tags"></i>
+            <span class="tags-meta">
+                
+                    <a class="tag-link" href="../../../../tags/javascript/">javascript</a>
+                
+            </span>
+        </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2016/06/23</span>
+        </span>
+        
+            <span class="fa-wrap">
+                <i class="fa fa-eye"></i>
+                <span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    
+</div>
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="关于Javascript常见创建对象的几种方式以及原型链分析"><a href="#关于Javascript常见创建对象的几种方式以及原型链分析" class="headerlink" title="关于Javascript常见创建对象的几种方式以及原型链分析"></a>关于Javascript常见创建对象的几种方式以及原型链分析</h3><a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br></pre></td><td class="code"><pre><span class="line">//1.创建构造函数</span><br><span class="line">    <span class="keyword">function</span> Person(name,age,sex) &#123;</span><br><span class="line">        this.name=name;</span><br><span class="line">        this.age=age;</span><br><span class="line">        this.sex=sex;</span><br><span class="line">        this.say=<span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">            console.log(<span class="string">'我饿了。我要吃饭'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">//调用构造函数创建对象以及使用</span><br><span class="line">    var obj = new Person(<span class="string">'jack'</span>,18,<span class="string">'男'</span>);</span><br><span class="line">    obj.say();</span><br><span class="line">    console.log(obj.name);</span><br><span class="line">    console.dir(obj);</span><br><span class="line">    console.dir(Person);</span><br><span class="line">        </span><br><span class="line">//obj.constructor 获取实例对象的构造器（构造函数）</span><br><span class="line">//判断某个对象是否属于这种数据类型</span><br><span class="line">    console.log(<span class="string">'obj.constructor === Person'</span>,obj.constructor === Person);</span><br><span class="line"></span><br><span class="line">    console.log(<span class="string">'obj.__proto__.constructor === Person'</span>,obj.__proto__.constructor === Person);</span><br><span class="line">    console.log(<span class="string">'obj.__proto__.constructor === Person.prototype.constructor'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//2.工厂方式创建对象</span><br><span class="line">    <span class="keyword">function</span> createObject(name,age) &#123;</span><br><span class="line">        var obj = new Object();</span><br><span class="line">        obj.name=name;</span><br><span class="line">        obj.age=age;</span><br><span class="line">        <span class="built_in">return</span> obj;</span><br><span class="line">    &#125;</span><br><span class="line">//调用工厂方法</span><br><span class="line">    var obj1 = createObject(<span class="string">'张三'</span>,18);</span><br><span class="line">    console.log(obj1);</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     *两种方式对比</span><br><span class="line">     * 共同点：都是函数，都可以创建对象，都可以传入参数</span><br><span class="line">     *</span><br><span class="line">     * 区别</span><br><span class="line">     *      工厂模式：</span><br><span class="line">     *          函数名小写、</span><br><span class="line">     *          内部有new、</span><br><span class="line">     *          有返回值、</span><br><span class="line">     *          直接调用函数就是创建对象</span><br><span class="line">     *      自定义构造函数：</span><br><span class="line">     *          函数名大写、</span><br><span class="line">     *          内部无new、</span><br><span class="line">     *          没有返回值、</span><br><span class="line">     *          this是当前对象</span><br><span class="line">     * */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//使用prototype创建原型属性与方法，实现（数据共享，节省内存）</span><br><span class="line">    /*方式一*/</span><br><span class="line">    <span class="keyword">function</span> Student(name,age,sex) &#123;</span><br><span class="line">        this.name=name;</span><br><span class="line">        this.age=age;</span><br><span class="line">        this.sex=sex;</span><br><span class="line">    &#125;</span><br><span class="line">    Student.prototype.height=188;</span><br><span class="line">    Student.prototype.weight=<span class="string">'55kg'</span>;</span><br><span class="line">    Student.prototype.eat=<span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">        console.log(this.name+<span class="string">'饿了，要吃饭去'</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">    Student.prototype.isWillSwiming=<span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    var p1 = new Student(<span class="string">'码云'</span>,15,<span class="string">'男'</span>);</span><br><span class="line">    p1.eat();</span><br><span class="line">    console.dir(Student)</span><br><span class="line">    console.log(p1);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /*方式二*/</span><br><span class="line">    <span class="keyword">function</span> Student(name,age,sex) &#123;</span><br><span class="line">        this.name=name;</span><br><span class="line">        this.age=age;</span><br><span class="line">        this.sex=sex;</span><br><span class="line">    &#125;</span><br><span class="line">    //简写弊端：无法查看构造器指向，需手动修改</span><br><span class="line">    Student.prototype=&#123;</span><br><span class="line">        //手动修改构造器的指向</span><br><span class="line">        constructor:Student,</span><br><span class="line">        height:100,</span><br><span class="line">        weight:<span class="string">'55kg'</span>,</span><br><span class="line">        version:1.0,</span><br><span class="line">        eat:<span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">            console.log(<span class="string">'该吃饭了'</span>);</span><br><span class="line">        &#125;,</span><br><span class="line">        study:<span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">            console.log(<span class="string">'该学习了'</span>);</span><br><span class="line">        &#125;,</span><br><span class="line">        swiming:<span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">            console.log(<span class="string">'该游泳了'</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    var stu = new Student(<span class="string">"刘亦菲"</span>,18,<span class="string">'女'</span>)</span><br><span class="line">    console.dir(Student)</span><br><span class="line">    console.dir(stu)</span><br><span class="line"></span><br><span class="line">原型链总结    </span><br><span class="line">    /**</span><br><span class="line">     * 构造函数内部有自己的原型对象（protoptype）</span><br><span class="line">     * 原型对象的构造器（constructor）指向自己的构造函数</span><br><span class="line">     * 实例对象内部有自己的原型（__proto__）指向的构造器（contructor）函数</span><br><span class="line">     *</span><br><span class="line">     *</span><br><span class="line">     * 实例对象先从自身寻找属性，如果找到就返回，如果没找到就从原型对象里边寻找，如果原型对象里也没有就直接报错了，整个寻找过程此时就形成了原型链</span><br><span class="line">     *</span><br><span class="line">     *</span><br><span class="line">     *  实例对象使用的属性或者方法，先在实例中查找，找到了则直接使用，找不到，去实例对象的_proto_指向构造函数的原型对象prototype中找，找到了则使用，找不到就报错</span><br><span class="line">     *  原型链：实例对象与原型对象之间的关系是通过原型（__proto__）来联系的，这种关系叫做原型链</span><br><span class="line">     *  实例对象与构造函数之间没有直接上的关系</span><br><span class="line">     *  构造函数中的this与原型对象中的this都是实例对象</span><br><span class="line">     *</span><br><span class="line">     *</span><br><span class="line">     * 原型???</span><br><span class="line">     *    实例对象中有__proto__这个属性，叫原型，也是一个对象，不是标准的属性</span><br><span class="line">     *    构造函数中有prototype这个属性，叫原型，也是一个对象，是标准的属性</span><br><span class="line">     *    __proto__也可以叫原型对象</span><br><span class="line">     *    prototype可以叫做原型对象</span><br><span class="line">     *</span><br><span class="line">     *</span><br><span class="line">     *    实例对象的__proto__和构造函数中的prototype相等</span><br><span class="line">     *    又因为实例对象是通过构造函数来创建的，构造函数中有原型对象prototype</span><br><span class="line">     *    实例对象的__proto__指向了构造函数的原型对象prototype</span><br><span class="line">     *</span><br><span class="line">     * */</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+    
+        <div class="reward" ontouchstart>
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+                <span class="reward-type">
+                    <img class="alipay" src="../../../../../img/ali_reward.png"><b>支付宝打赏</b>
+                </span>
+            
+            
+                <span class="reward-type">
+                    <img class="wechat" src="../../../../../img/wx_reward.png"><b>微信打赏</b>
+                </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">您的支持是对作者最大的肯定</p>
+</div>
+
+
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="../../../../2017/04/20/npm/" class="pre-post btn btn-default" title="如何使用npm发布自己的模块包">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">如何使用npm发布自己的模块包</span>
+        </a>
+    
+    
+        <a href="../../21/JavaScript笔记整理第1篇/" class="next-post btn btn-default" title="JavaScript学习笔记整理第1篇">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">JavaScript学习笔记整理第1篇</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+	
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="../../../../assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'tVEfNvt05M1Fpq1biNEQoE99-gzGzoHsz',
+            appKey: 'yNz94TfqcsSzhAzkwOIe5oFN',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail,link'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#关于Javascript常见创建对象的几种方式以及原型链分析"><span class="toc-text">关于Javascript常见创建对象的几种方式以及原型链分析</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+        访问量:
+        <strong id="busuanzi_value_site_pv">
+            <i class="fa fa-spinner fa-spin"></i>
+        </strong>
+        &nbsp; | &nbsp;
+        访客数:
+        <strong id="busuanzi_value_site_uv">
+            <i class="fa fa-spinner fa-spin"></i>
+        </strong>
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <script src="../../../../assets/tagcanvas.min.js?rev=2.9"></script>
+    <script>
+        var tagOption = {
+            textColour: '#444', // 字体颜色
+            outlineMethod: 'block', // 选中模式
+            outlineColour: '#FFDAB9', // 选中模式的颜色
+            interval: 30 || 30, // 动画帧之间的时间间隔，值越大，转动幅度越大
+            textHeight: 13,
+            outlineRadius: 3,
+            freezeActive: true || '', // 选中的标签是否继续滚动
+            frontSelect: true || '', // 不选标签云后部的标签
+            initial: [0.1, -0.1],
+            depth: 0.5,
+            decel: 0.95,
+            maxSpeed: 0.03,
+            reverse: true || '', // 是否反向触发
+            fadeIn: 500, // 进入动画时间
+            wheelZoom: false || '' // 是否启用鼠标滚轮
+        }
+        TagCanvas.Start('tag-cloud-3d','',tagOption);
+    </script>
+
+
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="../../../../js/app.js?rev=@@hash"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

@@ -19,8 +19,8 @@
     <meta name="keywords" content="javascript">
 
 
-    <meta name="description" content="Javascript中的数据类型
-12345678910111213141516171819202122基本类型（值类型）    Undefined    Null    Boolean    ...">
+    <meta name="description" content="Javascript中的数据类型与基本语法规则
+12345678910111213141516171819202122232425262728293031323334基本类型（值类型）    U...">
 
 
 
@@ -32,7 +32,7 @@
     <!--Title-->
 
 
-<title>JavaScript笔记整理第1篇 | zxzybin</title>
+<title>JavaScript学习笔记整理第1篇 | zxzybin</title>
 
 
     <link rel="alternate" href="/atom.xml" title="zxzybin" type="application/atom+xml">
@@ -133,9 +133,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="JavaScript笔记整理第1篇">
+        <h1 id="JavaScript学习笔记整理第1篇">
             
-	            JavaScript笔记整理第1篇
+	            JavaScript学习笔记整理第1篇
             
         </h1>
         <div class="post-meta">
@@ -176,8 +176,10 @@
     </div>
     
     <div class="post-body post-content">
-        <h3 id="Javascript中的数据类型"><a href="#Javascript中的数据类型" class="headerlink" title="Javascript中的数据类型"></a>Javascript中的数据类型</h3><a id="more"></a>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">基本类型（值类型）</span><br><span class="line">    Undefined</span><br><span class="line">    Null</span><br><span class="line">    Boolean</span><br><span class="line">    Number</span><br><span class="line">    String</span><br><span class="line">复杂类型（引用类型）</span><br><span class="line">    Object</span><br><span class="line">    Array</span><br><span class="line">    Date</span><br><span class="line">    RegExp</span><br><span class="line">    Function</span><br><span class="line">内置对象：</span><br><span class="line">    Global</span><br><span class="line">    Math</span><br><span class="line">类型检测：</span><br><span class="line">    typeof</span><br><span class="line">    instanceof</span><br><span class="line">    Object.prototype.toString.call()</span><br><span class="line">值类型与引用类型在内存中的存储方式</span><br><span class="line">    值类型按值存储（在栈中存储）</span><br><span class="line">    引用类型按引用存储 （地址在栈中存储，对象在堆中存储）</span><br></pre></td></tr></table></figure>
+        <h3 id="Javascript中的数据类型与基本语法规则"><a href="#Javascript中的数据类型与基本语法规则" class="headerlink" title="Javascript中的数据类型与基本语法规则"></a>Javascript中的数据类型与基本语法规则</h3><a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">基本类型（值类型）</span><br><span class="line">    Undefined</span><br><span class="line">    Null</span><br><span class="line">    Boolean</span><br><span class="line">    Number</span><br><span class="line">    String</span><br><span class="line"></span><br><span class="line">复杂类型（引用类型）</span><br><span class="line">    Object</span><br><span class="line">    Array</span><br><span class="line">    Date</span><br><span class="line">    RegExp</span><br><span class="line">    Function</span><br><span class="line"></span><br><span class="line">内置对象：</span><br><span class="line">    Global</span><br><span class="line">    Math</span><br><span class="line"></span><br><span class="line">类型检测：</span><br><span class="line">    typeof</span><br><span class="line">    instanceof</span><br><span class="line">    Object.prototype.toString.call()</span><br><span class="line"></span><br><span class="line">值类型与引用类型在内存中的存储方式</span><br><span class="line">    值类型按值存储（在栈中存储）</span><br><span class="line">    引用类型按引用存储 （地址在栈中存储，对象在堆中存储）</span><br><span class="line"></span><br><span class="line">作用域：使用范围</span><br><span class="line">   全局变量：声明的变量使用var，就是全局变量，全局变量可在任何位置使用</span><br><span class="line">   局部变量：在函数内部定义的变量，就是局部变量，外界无法使用</span><br><span class="line">   块级作用域（一对大括号就是一个块级作用域,在这块区域中定义的变量，只能在这个区域中使用，但是js在这个块级作用域中定义的变量，外面也可以使用，说明：js没有块级作用域）</span><br><span class="line">   扩展：</span><br><span class="line">        隐式全局变量：声明的变量没有var，就叫隐式全局变量</span><br><span class="line">        全局变量不能被删除，但是隐式全局变量可以被删除</span><br></pre></td></tr></table></figure>
+
+<h4 id="预解析：在解析代码之前"><a href="#预解析：在解析代码之前" class="headerlink" title="预解析：在解析代码之前"></a><em>预解析：在解析代码之前</em></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">    变量声明提前：把变量提前到当前所在的作用域的最上面</span><br><span class="line">    函数声明提前：提前到当前所在的作用域的最上面</span><br><span class="line">    * 注意：</span><br><span class="line">    *   变量的提升只会在当前的作用域提升，提升到当前作用域的最前边</span><br><span class="line">    *   函数的变量只会提升到函数的作用域中的最前边</span><br><span class="line">    *   预解析会分段（多对的script标签中函数重名，预解析不会冲突）</span><br><span class="line">    *   预解析的过程其实就是把函数的声明和变量的声明提前</span><br><span class="line">    *   变量的声明总是在函数的声明的最上边</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">***** 案例一 *****    </span><br><span class="line">    console.log(a);//猜想此处输出undefined？？？</span><br><span class="line">    <span class="keyword">function</span> <span class="function"><span class="title">a</span></span>() &#123;</span><br><span class="line">        console.log(<span class="string">'aaaaa'</span>);</span><br><span class="line">        var  a=10;//变量a会被提升到作用域的最前边，所以说上边猜想输出undefined</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    var a=11;</span><br><span class="line">    console.log(a)//输出11</span><br><span class="line">    /**</span><br><span class="line">    * 解析以上a的猜想结果为什么是[Function: a]，而不是a</span><br><span class="line">    * 等效于如下</span><br><span class="line">    *      var a;</span><br><span class="line">    *      <span class="keyword">function</span> <span class="function"><span class="title">a</span></span>()&#123;console.log(<span class="string">'aaaaa'</span>);&#125;</span><br><span class="line">    *      console.log(a);//此处变量a与函数a同名，所以此处输出的是函数a</span><br><span class="line">    *      a=11;</span><br><span class="line">    *      console.log(a);</span><br><span class="line">    *</span><br><span class="line">    *</span><br><span class="line">    */ </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">***** 案例二 *****</span><br><span class="line">abc();</span><br><span class="line">console.log(c); //输出9</span><br><span class="line">console.log(b); //输出9</span><br><span class="line">console.log(a); //报错：Uncaught ReferenceError: a is not defined</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">abc</span></span>() &#123;</span><br><span class="line">    var a=b=c=9;</span><br><span class="line">    console.log(a)  //9</span><br><span class="line">    console.log(b)  //9</span><br><span class="line">    console.log(c)  //9</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 解释如下，等同于</span><br><span class="line"> *   var b;</span><br><span class="line">     var c;</span><br><span class="line">     <span class="keyword">function</span> <span class="function"><span class="title">abc</span></span>() &#123;</span><br><span class="line">        var a=b=c=9;</span><br><span class="line">        var a;</span><br><span class="line">        a=9; //局部变量</span><br><span class="line"></span><br><span class="line">        //b,c都为隐式全局变量，变量作用域为全局</span><br><span class="line">        b=9;</span><br><span class="line">        c=9;</span><br><span class="line"></span><br><span class="line">        console.log(a)  //9</span><br><span class="line">        console.log(b)  //9</span><br><span class="line">        console.log(c)  //9</span><br><span class="line">     &#125;</span><br><span class="line">     abc();</span><br><span class="line">     console.log(c); //输出9</span><br><span class="line">     console.log(b); //输出9</span><br><span class="line">     console.log(a); //局部变量，外部访问不到所以报错，</span><br><span class="line"> *</span><br><span class="line"> * */</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p style="color:#999;font-size: 14px">后续继续补充中。。。</p>
@@ -219,9 +221,9 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="../../../../2017/04/20/npm/" class="pre-post btn btn-default" title="如何使用npm发布自己的模块包">
+        <a href="../../23/JavaScript笔记整理第2篇/" class="pre-post btn btn-default" title="JavaScript学习笔记整理第2篇">
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">如何使用npm发布自己的模块包</span>
+            <span class="hidden-xs">JavaScript学习笔记整理第2篇</span>
         </a>
     
     
@@ -233,6 +235,33 @@
 </div>
 
 
+    <div id="comments">
+        
+	
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="../../../../assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'tVEfNvt05M1Fpq1biNEQoE99-gzGzoHsz',
+            appKey: 'yNz94TfqcsSzhAzkwOIe5oFN',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail,link'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
 
 
 
@@ -243,7 +272,7 @@
     <div class="widget">
         <h3 class="title">文章目录</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Javascript中的数据类型"><span class="toc-text">Javascript中的数据类型</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Javascript中的数据类型与基本语法规则"><span class="toc-text">Javascript中的数据类型与基本语法规则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#预解析：在解析代码之前"><span class="toc-text">预解析：在解析代码之前</span></a></li></ol></li></ol>
         
     </div>
 </aside>

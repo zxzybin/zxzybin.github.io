@@ -1,0 +1,359 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="zxzybin">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://zxzybin.github.io">
+    <!--SEO-->
+
+    <meta name="keywords" content="正则">
+
+
+    <meta name="description" content="正则表达式的基本概念
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474...">
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+
+    <!--Title-->
+
+
+<title>正则表达式的学习与总结 | zxzybin</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="zxzybin" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="../../../../css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="../../../../css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="../../../../css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="zxzy">
+            <img src="../../../../img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 桃李不言,下自成蹊 </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://zxzybin.github.io">zxzybin</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa fa-home fa-spin"></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/技术/"><i class="fa fa-book fa-spin"></i>技术</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa fa-clock-o fa-spin"></i>时光机</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about/"><i class="fa fa-cog fa-spin"></i>关于</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="正则表达式的学习与总结">
+            
+	            正则表达式的学习与总结
+            
+        </h1>
+        <div class="post-meta">
+    
+        <span class="categories-meta fa-wrap">
+            <i class="fa fa-folder-open-o"></i>
+            <a class="category-link" href="../../../../categories/技术/">技术</a>
+        </span>
+    
+
+    
+        <span class="fa-wrap">
+            <i class="fa fa-tags"></i>
+            <span class="tags-meta">
+                
+                    <a class="tag-link" href="../../../../tags/正则/">正则</a>
+                
+            </span>
+        </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2017/10/05</span>
+        </span>
+        
+            <span class="fa-wrap">
+                <i class="fa fa-eye"></i>
+                <span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    
+</div>
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h5 id="正则表达式的基本概念"><a href="#正则表达式的基本概念" class="headerlink" title="正则表达式的基本概念"></a><a href="##">正则表达式的基本概念</a></h5><a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br></pre></td><td class="code"><pre><span class="line"> /**</span><br><span class="line">  * 正则表达式：也叫规则表达式，按照一定的规则组成的一个表达式，主要用来匹配字符串的</span><br><span class="line">  * 在大多数编程语言中都可以使用</span><br><span class="line">  * 最早是用在神经学中的</span><br><span class="line">  * 组成：是由元字符或者限定字符组成的一个式子</span><br><span class="line">  *</span><br><span class="line">  *</span><br><span class="line">  *</span><br><span class="line">  * 元字符</span><br><span class="line">  *  .                       除了\n以外的任意一个字符</span><br><span class="line">  *  []                      里边可以放什么东西就代表什么东西，一般多表示范围</span><br><span class="line">  *  [0]                     表示数字0</span><br><span class="line">  *  [360]                   表示3或者6或者0</span><br><span class="line">  *  [0-9]                   表示0到9之间任何一个数字   [100-200]错误的写法</span><br><span class="line">  *  [0-9]&#123;10&#125;               表示0到9之间任何一个数字出现了10次</span><br><span class="line">  *  [1][0-9][0-9]           表示100到199之间的任意一个数字</span><br><span class="line">  *  [a-z]                   表示26个小写字母</span><br><span class="line">  *  [a-zA-Z]                表示大小写字母中的其中一个</span><br><span class="line">  *  [0-9a-zA-Z]             表示所有的数字或者字母中的一个</span><br><span class="line">  *  [0-9]|[a-z]             表示要么是数字，要么是一个小写的字母</span><br><span class="line">  *  |                       表示或的意思，优先级最低，最后才计算</span><br><span class="line">  *  ()                      分组 [0-9]|([a-z])|[A-Z]改变优先级</span><br><span class="line">  *  ([0-9])([1-5])([a-z])   三组，从最左边开始计算</span><br><span class="line">  *  &#123;n&#125;                     表示的该限定符前面的表达式出现了n次</span><br><span class="line">  *  [a-z]&#123;3&#125;                表示a-z之间的字母出现了三次</span><br><span class="line">  *  [a-z0-9]&#123;1,6&#125;           最少出现1次最多出现6次</span><br><span class="line">  *  *                       表示前面的表达式出现0次或者多次 [a-z][0-9]* 表示小写字母中的任意一个，后面要么没数字，要么是多个数字的</span><br><span class="line">  *  +                       表示前面的表达式出现1次或者多次 &#123;1,&#125;</span><br><span class="line">  *  ?                       表示前面的表达式出现0次或者1次 另一个含义：阻止贪婪模式</span><br><span class="line">  *  \d                      数字中的任意一个</span><br><span class="line">  *  \D                      非数字</span><br><span class="line">  *  \s                      空白符中的一个</span><br><span class="line">  *  \S                      非空白符</span><br><span class="line">  *  \w                      表示非特殊符号 下划线_也是非特殊字符</span><br><span class="line">  *  \W                      表示特殊符号</span><br><span class="line">  *  \b                      单词边界</span><br><span class="line">  *  g                       表示全局匹配</span><br><span class="line">  *  i                       忽略大小写</span><br><span class="line">  *</span><br><span class="line">  *</span><br><span class="line">  *  限定符：表示前面的表达式出现的次数</span><br><span class="line">  *  &#123;&#125;                      更加明确前面的表达式出现的次数</span><br><span class="line">  *  &#123;0,&#125;                    表示的是前面的表达式出现了0次到多次，和 * 一样的</span><br><span class="line">  *  &#123;1,&#125;                    表示的是前面的表达式出现了1次到多次，和 + 一样的</span><br><span class="line">  *  &#123;0,1&#125;                   表示的是前面的表达式出现了0次到1次， 和 ？一样的</span><br><span class="line">  *  &#123;4&#125;                     表示前面的表达式出现4次</span><br><span class="line">  *  &#123;,10&#125;                   =====错误的</span><br><span class="line">  *</span><br><span class="line">  *  ^                       表示以什么开始，或者取非（取反）</span><br><span class="line">  *                              ^[0-9] 以数字开头</span><br><span class="line">  *                              ^[a-z] 以小写字母开头</span><br><span class="line">  *                              [^0-9] 取反，非数字</span><br><span class="line">  *                              [^a-z] 非小写字母</span><br><span class="line">  * $                        表示以什么结束，可配合^使用</span><br><span class="line">  *                              ^[0-9][a-z]$ 相当于严格模式</span><br><span class="line">  *</span><br><span class="line">  *</span><br><span class="line">  *</span><br><span class="line">  * */</span><br><span class="line"></span><br><span class="line"> /**</span><br><span class="line">  * 常见案例如下：</span><br><span class="line">  *  15位或者18位身份证号码 ([1-9][0-9]&#123;14&#125;)|([1-9][0-9]&#123;16&#125;[0-9xX])</span><br><span class="line">  *  15位号码： [1-9][0-9]&#123;14&#125;</span><br><span class="line">  *  18位号码： [1-9][0-9]&#123;16&#125;[0-9xX]</span><br><span class="line">  *  简写： ([1-9][0-9]&#123;14&#125;)([0-9]&#123;2&#125;[0-9xX])?</span><br><span class="line">  *</span><br><span class="line">  *</span><br><span class="line">  *</span><br><span class="line">  * 座机号码的正则表达式</span><br><span class="line">  *      规律：      010-19876542</span><br><span class="line">  *      规律：      0412-19822393</span><br><span class="line">  *      匹配规则:   [0-9]&#123;3,4&#125;[-][0-9]&#123;8&#125; 或者\d&#123;3,4&#125;[-]\d&#123;8&#125;</span><br><span class="line">  *</span><br><span class="line">  *</span><br><span class="line">  * qq号码</span><br><span class="line">  *      规律：      5-11数字</span><br><span class="line">  *      匹配规则:   [1-9][0-9]&#123;4,11&#125;</span><br><span class="line">  *</span><br><span class="line">  *</span><br><span class="line">  * 手机号</span><br><span class="line">  *      规律：     11位数字</span><br><span class="line">  *      规律：     130 131 132 134 135 136 137 138 139</span><br><span class="line">  *      规律：     143 147</span><br><span class="line">  *      规律：     150到159</span><br><span class="line">  *      规律：     170  171 173 176 177</span><br><span class="line">  *      规律：     180到189</span><br><span class="line">  *      匹配规则：  ([1][358][0-9][0-9]&#123;8&#125;)|([1][4][37][0-9]&#123;8&#125;)|([1][7][01367][0-9]&#123;8&#125;)</span><br><span class="line">  *      简写:      \d&#123;11&#125;</span><br><span class="line">  *      注释：如果有新的号码规律，完善规则即可</span><br><span class="line">  *</span><br><span class="line">  *</span><br><span class="line">  * 邮箱正则表达式</span><br><span class="line">  *      规律：     数字、字母、下划线、中划线、点、  sd12323QWE-._12@126.com 等等</span><br><span class="line">  *      匹配规则：  ^[0-9a-zA-Z_.-]+[@][0-9a-zA-Z_.-]+([.][a-zA-Z]+)&#123;1,2&#125;&amp;</span><br><span class="line">  *</span><br><span class="line">  *中文正则表达式</span><br><span class="line">  *      匹配规则：[\u4e00-\u9fa5] </span><br><span class="line">  * escape   将中文编码</span><br><span class="line">  * unescape 把编码转成中文</span><br><span class="line">  *</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> //判断密码级别</span><br><span class="line">     <span class="keyword">function</span> getLvl(<span class="built_in">pwd</span>) &#123;</span><br><span class="line">         var level = 0;</span><br><span class="line">         //验证密码中是否有数字</span><br><span class="line">         <span class="keyword">if</span>(/\d/.<span class="built_in">test</span>(<span class="built_in">pwd</span>))&#123;</span><br><span class="line">             level++;</span><br><span class="line">         &#125;</span><br><span class="line">         //验证密码中是否有字母</span><br><span class="line">         <span class="keyword">if</span>(/[a-zA-Z]/.<span class="built_in">test</span>(<span class="built_in">pwd</span>))&#123;</span><br><span class="line">             level++;</span><br><span class="line">         &#125;</span><br><span class="line">         //验证密码中是否有特殊符号</span><br><span class="line">         <span class="keyword">if</span>(/[^0-9a-zA-Z_]/.<span class="built_in">test</span>(<span class="built_in">pwd</span>))&#123;</span><br><span class="line">             level++;</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="built_in">return</span> level; // 1 或者 3</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> //匹配全部的数字</span><br><span class="line">     var str = <span class="string">"中国移动：10086，中国联通：10010，中国电信：10000"</span>;</span><br><span class="line">     var array = str.match(/\d&#123;5&#125;/g);</span><br><span class="line">     console.log(array);</span><br><span class="line"></span><br><span class="line">     var reg = /\d&#123;5&#125;/g;</span><br><span class="line">     var arr = reg.exec(str);</span><br><span class="line">     <span class="keyword">while</span> (arr != null)&#123;</span><br><span class="line">         console.log(arr[0]);</span><br><span class="line">         arr = reg.exec(str);</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> //提取日</span><br><span class="line">     var str = <span class="string">"2016-06-29"</span>;</span><br><span class="line">     var arr = str.match(/(\d&#123;4&#125;)[-](\d&#123;2&#125;)[-](\d&#123;2&#125;)/g);</span><br><span class="line">     //正则表达式对象.<span class="variable">$3</span>, 提取组</span><br><span class="line">     console.log(RegExp.<span class="variable">$3</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> //提取邮箱中的信息</span><br><span class="line">     var str = <span class="string">'noonezxzy@126.com.cn'</span>;</span><br><span class="line">     var arr = str.match(/([0-9a-zA-Z_.-]+)[@]([0-9a-zA-Z_-]+)(([.][a-zA-z]+)&#123;1,2&#125;)/);</span><br><span class="line">     console.log(RegExp.<span class="variable">$1</span>);</span><br><span class="line">     console.log(RegExp.<span class="variable">$2</span>);</span><br><span class="line">     console.log(RegExp.<span class="variable">$3</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> //文字替换</span><br><span class="line">     var str = <span class="string">'今天真是美好的一天，遇到美好的事情，遇见美好的人儿!'</span>;</span><br><span class="line">     str =  str.replace(/美好/g,<span class="string">'糟糕'</span>);</span><br><span class="line">     console.log(str);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//字符串剔除空格</span><br><span class="line">     var str = <span class="string">'  天真好，   出去打球啊   '</span>;</span><br><span class="line">     console.log(str);</span><br><span class="line">     str = str.trim(<span class="string">''</span>); //只能去掉两端的空白符</span><br><span class="line">     console.log(str);</span><br><span class="line"> //使用正则剔除空格</span><br><span class="line">     var str = <span class="string">'  天真好，   出去打球啊   '</span>;</span><br><span class="line">     str = str.replace(/\s+/g,<span class="string">''</span>); //\s空白符</span><br><span class="line">     console.log(str)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> //字母替换</span><br><span class="line">     var str = <span class="string">'aAbaAbaAbACa'</span>;</span><br><span class="line">     str = str.replace(/[a]/gi,<span class="string">'S'</span>);</span><br><span class="line">     console.log(str)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  * */</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+    
+        <div class="reward" ontouchstart>
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+                <span class="reward-type">
+                    <img class="alipay" src="../../../../../img/ali_reward.png"><b>支付宝打赏</b>
+                </span>
+            
+            
+                <span class="reward-type">
+                    <img class="wechat" src="../../../../../img/wx_reward.png"><b>微信打赏</b>
+                </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">您的支持是对作者最大的肯定</p>
+</div>
+
+
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="../../../../2018/07/15/fullstack/" class="pre-post btn btn-default" title="前端技术栈线路图">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">前端技术栈线路图</span>
+        </a>
+    
+    
+        <a href="../../../07/28/initialize/" class="next-post btn btn-default" title="css初始化">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">css初始化</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+	
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="../../../../assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'tVEfNvt05M1Fpq1biNEQoE99-gzGzoHsz',
+            appKey: 'yNz94TfqcsSzhAzkwOIe5oFN',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail,link'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#正则表达式的基本概念"><span class="toc-text">正则表达式的基本概念</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+        访问量:
+        <strong id="busuanzi_value_site_pv">
+            <i class="fa fa-spinner fa-spin"></i>
+        </strong>
+        &nbsp; | &nbsp;
+        访客数:
+        <strong id="busuanzi_value_site_uv">
+            <i class="fa fa-spinner fa-spin"></i>
+        </strong>
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <script src="../../../../assets/tagcanvas.min.js?rev=2.9"></script>
+    <script>
+        var tagOption = {
+            textColour: '#444', // 字体颜色
+            outlineMethod: 'block', // 选中模式
+            outlineColour: '#FFDAB9', // 选中模式的颜色
+            interval: 30 || 30, // 动画帧之间的时间间隔，值越大，转动幅度越大
+            textHeight: 13,
+            outlineRadius: 3,
+            freezeActive: true || '', // 选中的标签是否继续滚动
+            frontSelect: true || '', // 不选标签云后部的标签
+            initial: [0.1, -0.1],
+            depth: 0.5,
+            decel: 0.95,
+            maxSpeed: 0.03,
+            reverse: true || '', // 是否反向触发
+            fadeIn: 500, // 进入动画时间
+            wheelZoom: false || '' // 是否启用鼠标滚轮
+        }
+        TagCanvas.Start('tag-cloud-3d','',tagOption);
+    </script>
+
+
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="../../../../js/app.js?rev=@@hash"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

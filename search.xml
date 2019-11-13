@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[vue生命周期学习图解]]></title>
+    <url>%2F2018%2F08%2F13%2Fvue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%AD%A6%E4%B9%A0%E5%9B%BE%E8%A7%A3%2F</url>
+    <content type="text"><![CDATA[vue生命周期学习图解，欢迎看到的小伙伴交流参考]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[前端技术栈线路图]]></title>
     <url>%2F2018%2F07%2F15%2Ffullstack%2F</url>
     <content type="text"><![CDATA[来自前端技术专家整理的前端进阶路线 该图片来源于第三方提供]]></content>
@@ -10,6 +21,14 @@
       <tags>
         <tag>前端</tag>
       </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[life]]></title>
+    <url>%2F2017%2F11%2F13%2Flife%2F</url>
+    <content type="text"><![CDATA[该模块正在整理中。。。]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
   </entry>
   <entry>
     <title><![CDATA[正则表达式的学习与总结]]></title>
